@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "titre": "qsrdhgjq",
+      "description": "aaaaaaaaaaa",
+      "categorie": "Sport",
+      "date": "2023-05-12",
+      "id": 1
+    },
+    {
+      "titre": "ddgjgxgfjd",
+      "description": "df,h,gf",
+      "categorie": "Société",
+      "date": "12/4/2023",
+      "id": 2
+    },
+    {
+      "titre": "srtjt",
+      "description": "rstrj",
+      "categorie": "Sport",
+      "date": "12/4/2023",
+      "id": 4
+    },
+    {
+      "titre": "dfjdsjsr",
+      "description": "sthj",
+      "categorie": "Technologies",
+      "date": "12/4/2023",
+      "id": 5
+    },
+    {
+      "titre": "aaaaz",
+      "description": "zzzzze",
+      "categorie": "Culture",
+      "date": "12/4/2023",
+      "id": 6
+    },
+    {
+      "titre": "dgjfkd",
+      "description": "dryjtfj",
+      "categorie": "Économie",
+      "date": "12/4/2023",
+      "id": 7
+    },
+    {
+      "titre": "reseau",
+      "description": "iphone",
+      "categorie": "Technologies",
+      "date": "12/4/2023",
+      "id": 8
+    }
+  ]
+}

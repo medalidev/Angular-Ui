@@ -1,0 +1,44 @@
+<form class="container-fluid" [formGroup]="addition" (submit)="addArticle()">
+    <div class="mb-3 form-group">
+        <label class="form-label">Titre :</label>
+        <input type="text" formControlName="titre" class="form-control"
+            [class.is-invalid]="titre?.invalid && titre?.touched">
+        <div *ngIf="titre?.invalid && titre?.touched">
+            <small class="text-danger" *ngIf="titre?.hasError('required')">Le Titre est obligatoire</small>
+            <small class="text-danger" *ngIf="titre?.hasError('minlength')">Le Titre contient min 2 caractères</small>
+        </div>
+    </div>
+    <div class="mb-3 form-group">
+        <label for="exampleInputEmail1" class="form-label">Description :</label>
+        <input type="text" formControlName="description" class="form-control" id="exampleInputEmail1"
+            [class.is-invalid]="description?.invalid && description?.touched">
+        <div *ngIf="description?.invalid && description?.touched">
+            <small class="text-danger" *ngIf="description?.hasError('required')">La description est obligatoire</small>
+        </div>
+    </div>
+    <div class="mb-3 form-group">
+        <label for="exampleInputLast" class="form-label">Catégorie :</label>
+        <select class="form-select" formControlName="categorie" aria-label="Default select example"
+            [class.is-invalid]="categorie?.invalid && categorie?.touched">
+            <option selected>Sport</option>
+            <option>Technologies</option>
+            <option>Économie</option>
+            <option>Société</option>
+            <option>Culture</option>
+        </select>
+        <div *ngIf="categorie?.invalid && categorie?.touched">
+            <small class="text-danger" *ngIf="categorie?.hasError('required')">Catégorie est obligatoire</small>
+        </div>
+    </div>
+    <div class="mb-3 form-group">
+        <label for="exampleInputAdress" class="form-label">Date :</label>
+        <input type="text" formControlName="date" class="form-control" id="exampleInputAdress"
+            [class.is-invalid]="date?.invalid && date?.touched">
+        <div *ngIf="date?.invalid && date?.touched">
+            <small class="text-danger" *ngIf="date?.hasError('required')">Date incorrecte</small>
+            <small class="text-danger" *ngIf="date?.hasError('pattern')">Date incorrecte</small>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="addition.invalid">Ajouter</button>
+</form>
