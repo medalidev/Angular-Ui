@@ -1,6 +1,8 @@
 <h2 style="text-align: center;">Liste des postes</h2>
-
-<table class="table table-hover">
+<h1 *ngIf="tabPost?.length===0" class="d-flex vh-100 align-items-center justify-content-center">No data to preview!
+    <button routerLink="/add" class="btn btn-primary ms-3">Add Post</button>
+</h1>
+<table *ngIf="tabPost?.length >0" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Titre</th>
@@ -14,7 +16,7 @@
             <th scope="row">{{post.titre}}</th>
             <td>{{post.description}}</td>
             <td>{{post.categorie}}</td>
-            <td>{{post.date}}</td>
+            <td>{{post.createdAt}}</td>
             <td>
                 <button class="btn btn-success me-2" (click)="modifier(post)">Modifier</button>
                 <button class="btn btn-danger" (click)="supp(post)">Supprimer</button>

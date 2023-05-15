@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-post',
   templateUrl: './list-post.component.html',
-  styleUrls: ['./list-post.component.css']
+  styleUrls: ['./list-post.component.css'],
 })
 export class ListPostComponent implements OnInit {
-  tabPost!: any
-  index: any
-  constructor(private postService: PostService, private router: Router, private route: ActivatedRoute) { }
+  tabPost: any;
+  index: any;
+  constructor(
+    private postService: PostService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit(): void {
-    this.postes()
+    this.postes();
   }
-
 
   postes() {
     this.postService.listPosts().subscribe(
       (response: any) => {
-        this.tabPost = response
+        this.tabPost = response;
       },
       (error: any) => {
         console.log(error);
-
       }
-    )
+    );
   }
 
   supp(post: any) {
@@ -37,27 +39,24 @@ export class ListPostComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-        this.postService.deletePost(post.id)
-          .subscribe((response: any) => {
-            console.log("deleted success");
-            this.ngOnInit()
-          }, (error: any) => {
+        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        this.postService.deletePost(post.id).subscribe(
+          (response: any) => {
+            console.log('deleted success');
+            this.ngOnInit();
+          },
+          (error: any) => {
             console.log(error);
-
-          })
+          }
+        );
       }
-    })
+    });
   }
 
   modifier(post: any) {
-    this.router.navigate([post.id], { relativeTo: this.route })
+    this.router.navigate([post.id], { relativeTo: this.route });
   }
 }

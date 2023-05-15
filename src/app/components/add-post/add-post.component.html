@@ -30,15 +30,6 @@
             <small class="text-danger" *ngIf="categorie?.hasError('required')">Catégorie est obligatoire</small>
         </div>
     </div>
-    <div class="mb-3 form-group">
-        <label for="exampleInputAdress" class="form-label">Date :</label>
-        <input type="text" formControlName="date" class="form-control" id="exampleInputAdress"
-            [class.is-invalid]="date?.invalid && date?.touched">
-        <div *ngIf="date?.invalid && date?.touched">
-            <small class="text-danger" *ngIf="date?.hasError('required')">Date incorrecte</small>
-            <small class="text-danger" *ngIf="date?.hasError('pattern')">Date incorrecte</small>
-        </div>
-    </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="addition.invalid">Ajouter</button>
 </form>
